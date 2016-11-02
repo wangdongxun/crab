@@ -28,6 +28,12 @@
             <artifactId>guava</artifactId>
             <version>17.0</version>
         </dependency>
+        <!--el 表达式-->
+        <dependency>
+            <groupId>org.nutz</groupId>
+            <artifactId>nutz</artifactId>
+            <version>1.r.58</version>
+        </dependency>
     </dependencies>
 
 
