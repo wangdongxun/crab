@@ -51,6 +51,7 @@ public class GroupBy {
                     ", FruitPrice=" + FruitPrice +
                     '}';
         }
+
     }
 
     static List<Fruit> fruitsList=new ArrayList<>();
