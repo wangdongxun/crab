@@ -1,4 +1,4 @@
-package Nutz;
+package nutz;
 
 import org.nutz.el.El;
 import org.nutz.lang.Lang;
