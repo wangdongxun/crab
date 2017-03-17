@@ -4,17 +4,14 @@ import com.google.common.base.Function;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by wdx on 2016/11/2.
  */
 public class GroupBy {
 
-   static class Fruit {
+    static class Fruit {
         String fruitName;
         String fruitType;
         Integer FruitPrice;
@@ -54,7 +51,7 @@ public class GroupBy {
 
     }
 
-    static List<Fruit> fruitsList=new ArrayList<>();
+    static List<Fruit> fruitsList = new ArrayList<>();
 
     public GroupBy() {
         {
@@ -93,22 +90,44 @@ public class GroupBy {
             b.setFruitPrice(380);
             fruitsList.add(b);
         }
+        {
+            Fruit b = new Fruit();
+            b.setFruitName("lemon");
+            b.setFruitType("2");
+            b.setFruitPrice(400);
+            fruitsList.add(b);
+        }
     }
 
     public static void main(String[] args) {
 
-        GroupBy groupBy=new GroupBy();
+        GroupBy groupBy = new GroupBy();
 
-        Multimap<String, Fruit> userBookMultimap2= Multimaps.index(fruitsList, new Function<Fruit, String>() {
-            public String apply(Fruit fruit) {
-                return fruit.getFruitType();
+        Multimap<Map, Fruit> userBookMultimap2 = Multimaps.index(fruitsList, new Function<Fruit, Map>() {
+            public Map apply(Fruit fruit) {
+                Map map=new HashMap();
+                map.put("type",fruit.getFruitType());
+                map.put("name",fruit.getFruitName());
+                return map;
             }
         });
-        Map<String, Collection<Fruit>> userBookMap2 = userBookMultimap2.asMap();
+        Map<Map, Collection<Fruit>> userBookMap2 = userBookMultimap2.asMap();
 
-        for (Map.Entry<String, Collection<Fruit>> entry2 : userBookMap2.entrySet()) {
+        for (Map.Entry<Map, Collection<Fruit>> entry2 : userBookMap2.entrySet()) {
             System.out.println(entry2.getKey());
             System.out.println(entry2.getValue().toString());
+
+//            Multimap<String, Fruit> fruitGroupByName = Multimaps.index(entry2.getValue(), new Function<Fruit, String>() {
+//                public String apply(Fruit fruit) {
+//                    return fruit.getFruitName();
+//                }
+//            });
+//            Map<String, Collection<Fruit>> fruitGroupByNameMap = fruitGroupByName.asMap();
+//
+//            for (Map.Entry<String, Collection<Fruit>> entry3 : fruitGroupByNameMap.entrySet()) {
+//                System.out.println(entry3.getKey());
+//                System.out.println(entry3.getValue().toString());
+//            }
         }
     }
 }

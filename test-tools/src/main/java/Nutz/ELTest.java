@@ -12,25 +12,31 @@ import java.util.List;
  */
 public class ELTest {
     public static void main(String[] args) {
+//
+//        String rule01 = "0<=a&&a<131";
+//        String rule02 = "131<=a&&a<1521";
+//        String rule03 = "1521<=a&&a<8000";
+//        String rule04 = "a>=8000";
+//        List<String> list = new ArrayList();
+//        list.add(rule01);
+//        list.add(rule02);
+//        list.add(rule03);
+//        list.add(rule04);
+//
+//        Context context = Lang.context();
+//        context.set("a", 140L);
+//
+//        for (String s : list) {
+//            if ((boolean) El.eval(context, s)) {
+//                System.out.println(s);
+//            }
+//        }
 
-        String rule01="0<=a&&a<131";
-        String rule02="131<=a&&a<1521";
-        String rule03="1521<=a&&a<8000";
-        String rule04="a>=8000";
-        List<String> list=new ArrayList();
-        list.add(rule01);
-        list.add(rule02);
-        list.add(rule03);
-        list.add(rule04);
 
         Context context = Lang.context();
-        context.set("a", 140L);
+        context.set("a", 3);
+        String s = "a==1?'2001':(a==2?'2002':'')";
 
-        for (String s:list){
-            if((boolean) El.eval(context, s)){
-                System.out.println(s);
-            }
-        }
-
+        System.out.println(El.eval(context, s));
     }
 }
