@@ -23,7 +23,6 @@ public class App {
                         return null;
                     }
                 });
-
         proxy.sayHelloWorld();
     }
 }
