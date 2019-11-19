@@ -60,6 +60,6 @@ public class SmsAliyun {
     }
     public static void main(String[] args) throws Exception
     {
-        SmsAliyun.sendSmsAliYun("18100625522","{code:\"67853\"}","1徐州市市民卡有限公司","SMS_176520393");
+        SmsAliyun.sendSmsAliYun("18100625522","{code:\"67853\"}","徐州市市民卡有限公司","SMS_176520393");
     }
 }
